@@ -9,5 +9,14 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false  # 개발 중에는 캐시를 비활성화 (변경 사항 바로 반영)
 server:
   port: 9090
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.kafka.message.controller: DEBUG
