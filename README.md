@@ -1,6 +1,5 @@
-# KafkaMessage 포트폴리오 개발 중
+# KafkaMessage 랜덤 채팅 개발(진해중)
 
-[프로젝트 문서 보기](https://fifth-structure-4c8.notion.site/14742945830a8040aad9c1bc03c4baf0?pvs=73)
 
 ## 📚 프로젝트 개요
 
