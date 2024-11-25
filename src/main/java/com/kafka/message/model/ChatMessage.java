@@ -14,7 +14,6 @@ public class ChatMessage {
         this.content = content;
     }
 
-    // userId의 게터/세터
     public String getUserId() {
         return userId;
     }
@@ -23,7 +22,6 @@ public class ChatMessage {
         this.userId = userId;
     }
 
-    // sender의 게터/세터
     public String getSender() {
         return sender;
     }
@@ -32,7 +30,6 @@ public class ChatMessage {
         this.sender = sender;
     }
 
-    // content의 게터/세터
     public String getContent() {
         return content;
     }
