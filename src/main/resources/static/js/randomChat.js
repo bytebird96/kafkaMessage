@@ -24,7 +24,7 @@ stompClient.connect({}, () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;  // 새로운 메시지가 아래에 표시되도록
 
     // 채팅 메시지 수신
-    stompClient.subscribe('/topic/chat', function (message) {
+    stompClient.subscribe(`/user/${userId}/topic/chat`, function (message) {
         const chatMessage = JSON.parse(message.body);
         console.log("채팅 메시지:", chatMessage);
 
@@ -64,6 +64,8 @@ stompClient.connect({}, () => {
             sendButton.disabled = false;  // 전송 버튼 활성화
         }
     });
+}, (error) => {
+    console.error("STOMP 연결 실패:", error);
 });
 
 // 세션이 끊어지거나 새로고침 후 처리
