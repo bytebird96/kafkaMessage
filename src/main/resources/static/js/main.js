@@ -8,6 +8,7 @@
  * 1대1 대화 시 매칭에 사용
  * @returns {string}
  */
+
 function generateUniqueId() {
     return 'user-' + Math.random().toString(36).substr(2, 9); // 랜덤한 고유 ID 생성
 }
@@ -26,12 +27,12 @@ $(document).ready(function() {
 
     // 방 생성 버튼 클릭 시
     $('#createRoom').click(function() {
-        window.location.href = '/createRoom';  // 페이지 리디렉션
+        window.location.href = '/kafkaTest/view/createRoom';  // 페이지 리디렉션
     });
 
     // 1:1 랜덤 채팅 버튼 클릭 시
     $('#createChat').click(function() {
-        window.location.href = '/randomChat';  // 1:1 랜덤 채팅 페이지로 이동
+        window.location.href = '/kafkaTest/view/randomChat';  // 1:1 랜덤 채팅 페이지로 이동
     });
 
     // // 서버에서 채팅방 목록 가져와서 동적으로 채워주기 (예시)

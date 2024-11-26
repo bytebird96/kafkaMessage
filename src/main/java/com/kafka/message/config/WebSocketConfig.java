@@ -27,7 +27,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      */
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/chat").withSockJS();  // /chat 엔드포인트 등록 웨일에서 동작하지 않아 추가
+        /**
+         * 실제 경로는 /kafkaTest/chat
+         * chat 엔드포인트 등록 웨일에서 동작하지 않아 추가
+         */
+        registry.addEndpoint("/chat").withSockJS();
         //registry.addEndpoint("/chat");
     }
 }

@@ -2,13 +2,19 @@
 <html>
 <head>
   <title>Random Chat</title>
-  <script src="https://cdn.jsdelivr.net/sockjs/1.0.3/sockjs.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/stomp.js/1.1.1/stomp.min.js"></script>
+  <!-- STOMP.js는 SockJS 위에서 작동-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.1/dist/sockjs.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/kafkaTest/js/randomChat.js"></script> <!-- main.js로 변경 -->
+  <link rel="stylesheet" href="/kafkaTest/css/randomChat.css"> <!-- CSS 파일 연결 -->
 </head>
 <body>
-<button id="randomChatButton">랜덤 채팅 시작</button>
-<div id="chatMessages"></div>
-<input id="messageInput" type="text" placeholder="메시지 입력">
-<button id="send">전송</button>
+<div id="chatContainer">
+  <h2>랜덤 채팅</h2>
+  <div id="chatMessages"></div>
+  <input id="messageInput" type="text" placeholder="메시지 입력" disabled>
+  <button id="send" disabled>전송</button>
+</div>
 </body>
 </html>
