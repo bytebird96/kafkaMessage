@@ -23,8 +23,8 @@ stompClient.connect({}, () => {
     chatMessages.appendChild(matchingStatus);
     chatMessages.scrollTop = chatMessages.scrollHeight;  // 새로운 메시지가 아래에 표시되도록
 
-    // 채팅 메시지 수신
-    stompClient.subscribe(`/user/${userId}/topic/chat`, function (message) {
+    // 랜덤 채팅 매칭 시작
+    stompClient.subscribe(`/user/${userId}/topic/matching`, function (message) {
         const chatMessage = JSON.parse(message.body);
         console.log("채팅 메시지:", chatMessage);
 
@@ -64,6 +64,24 @@ stompClient.connect({}, () => {
             sendButton.disabled = false;  // 전송 버튼 활성화
         }
     });
+    stompClient.subscribe("/topic/chat", function (message) {
+        const chatMessage = JSON.parse(message.body);
+        console.log("수신된 메시지:", chatMessage);
+
+        const chatMessages = document.getElementById('chatMessages');
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('chat-message');
+
+        if (chatMessage.sender === userId) {
+            newMessage.classList.add('my-message'); // 자신이 보낸 메시지 스타일
+        } else {
+            newMessage.classList.add('other-message'); // 다른 사용자가 보낸 메시지 스타일
+        }
+
+        newMessage.textContent = `${chatMessage.sender}: ${chatMessage.content}`;
+        chatMessages.appendChild(newMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight; // 스크롤을 가장 아래로
+    });
 }, (error) => {
     console.error("STOMP 연결 실패:", error);
 });
@@ -78,3 +96,20 @@ window.onbeforeunload = () => {
 if (!sessionStorage.getItem('userId')) {
     window.location.href = "/kafkaTest/view/randomChat";  // userId가 없으면 랜덤채팅 페이지로 이동
 }
+
+$(document).ready(function() {
+    $('#send').click(function() {
+        const message = $('#messageInput');
+        if (message) {
+            // WebSocket을 통해 서버로 메시지 전송
+            stompClient.send("/app/sendMessage", {}, JSON.stringify({
+                sender: userId,       // 사용자 ID
+                content: message // 메시지 내용
+            }));
+            console.log("메시지 전송:", message);
+
+            // 전송 후 입력창 초기화
+            $('#messageInput').val("");
+        }
+    });
+});

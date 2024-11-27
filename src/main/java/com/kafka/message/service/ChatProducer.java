@@ -1,6 +1,5 @@
 package com.kafka.message.service;
 
-import com.kafka.message.model.ChatMessage;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
@@ -19,7 +18,7 @@ public class ChatProducer {
         this.objectMapper = objectMapper;
     }
 
-    public void sendMessage(ChatMessage message) {
+    public void sendMessage(String message) {
         try {
             String messageJson = objectMapper.writeValueAsString(message);
             CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send("chat-topic", messageJson);

@@ -1,6 +1,8 @@
 package com.kafka.message.controller;
 
 import jakarta.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/view")
 public class ViewController {
+    private static final Logger log = LoggerFactory.getLogger(ViewController.class);
 
     // 메인 화면 (채팅 페이지)
     @GetMapping("/main")
