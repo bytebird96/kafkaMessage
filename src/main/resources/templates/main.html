@@ -5,18 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>랜덤 채팅</title>
-  <link rel="stylesheet" href="/kafkaTest/css/main.css"><!-- 시간나면 스타일 개선 예정 -->
+  <link rel="stylesheet" href="/kafkaTest/css/main.css">
+  <!-- Google Fonts 추가 -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome 추가 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- jQuery 추가 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/kafkaTest/js/main.js"></script> <!-- main.js 로 변경 -->
+  <script src="/kafkaTest/js/main.js"></script>
 </head>
 <body>
 <div class="container">
-  <h1>랜덤 채팅</h1>
+  <h1><i class="fas fa-comments"></i> 랜덤 채팅</h1>
 
-  <!-- 방 생성 버튼 -->
-  <button id="createChat">1:1 랜덤 채팅</button>
-  <button id="createRoom">방 생성</button>
+  <div class="button-group">
+    <!-- 방 생성 버튼 -->
+    <button id="createChat" class="btn-primary"><i class="fas fa-random"></i> 1:1 랜덤 채팅</button>
+    <button id="createRoom" class="btn-secondary"><i class="fas fa-plus-circle"></i> 방 생성</button>
+  </div>
 
   <!-- 채팅방 리스트 -->
   <div id="chatRooms">
