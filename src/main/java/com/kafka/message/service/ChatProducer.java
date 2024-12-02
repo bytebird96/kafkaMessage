@@ -20,13 +20,13 @@ public class ChatProducer {
 
     public void sendMessage(String message) {
         try {
-            String messageJson = objectMapper.writeValueAsString(message);
-            CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send("chat-topic", messageJson);
+            //String messageJson = objectMapper.writeValueAsString(message);
+            CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send("chat-topic", message);
             future.whenComplete((result, ex) -> {
                 if (ex != null) {
                     System.err.println("Error sending message: " + ex.getMessage());
                 } else {
-                    System.out.println("Sent message: " + messageJson);
+                    System.out.println("Sent message: " + message);
                 }
             });
         } catch (Exception e) {

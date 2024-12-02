@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Chat</title>
-  <!-- STOMP.js는 SockJS 위에서 작동-->
+  <!-- STOMP.js는 SockJS 위에서 작동 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.1/dist/sockjs.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -13,8 +15,13 @@
 <div id="chatContainer">
   <h2>랜덤 채팅</h2>
   <div id="chatMessages"></div>
-  <input id="messageInput" type="text" placeholder="메시지 입력" disabled>
-  <button id="send" disabled>전송</button>
+
+  <form id="chatForm">
+    <div id="inputContainer">
+      <input id="messageInput" type="text" placeholder="메시지 입력" disabled>
+      <button id="send" type="submit" disabled>전송</button>
+    </div>
+  </form>
 </div>
 </body>
 </html>

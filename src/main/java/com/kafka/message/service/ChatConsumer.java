@@ -1,5 +1,6 @@
 package com.kafka.message.service;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -21,9 +22,12 @@ public class ChatConsumer {
      */
     @KafkaListener(topics = "chat-topic", groupId = "chat-group")
     public void listen(String messageJson) {
+        //messageJson = "{\"userId\":\"user_gcsm986\",\"sender\":\"user_gcsm986\",\"content\":\"ㅁㄴㅇ\"}";
+
         try {
             // Kafka 메시지를 ChatMessage 객체로 변환
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             ChatMessage chatMessage = objectMapper.readValue(messageJson, ChatMessage.class);
 
             // WebSocket을 통해 클라이언트로 전송

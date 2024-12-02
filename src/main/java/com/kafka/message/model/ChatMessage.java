@@ -7,13 +7,18 @@ public class ChatMessage {
     private String sender;  // 메시지 보낸 사람 (이름 혹은 ID)
     private String content; // 메시지 내용
 
-   // 생성자
+    // 기본 생성자
+    public ChatMessage() {
+    }
+
+    // 생성자
     public ChatMessage(String userId, String sender, String content) {
         this.userId = userId;
         this.sender = sender;
         this.content = content;
     }
 
+    // Getters and Setters
     public String getUserId() {
         return userId;
     }
@@ -38,5 +43,6 @@ public class ChatMessage {
         this.content = content;
     }
 }
+
 
 
