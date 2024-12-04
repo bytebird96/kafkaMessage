@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 //http://localhost:9090/kafkaTest/view/main
+//Capture full size screenshot
 @Controller
 @RequestMapping("/view")
 public class ViewController {
