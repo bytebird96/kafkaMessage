@@ -23,6 +23,9 @@
 
 ## **🗂️ 아키텍처**
 
+https://github.com/user-attachments/assets/7fab3a6d-543d-46ac-a937-1ce42198f074
+
+<img src="[/media/cc0-images/grapefruit-slice-332-332.jpg](https://github.com/user-attachments/assets/7fab3a6d-543d-46ac-a937-1ce42198f074)" />
 ```rust
 
 사용자 A <--> Spring WebSocket <--> Apache Kafka <--> Spring WebSocket <--> 사용자 B
