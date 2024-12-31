@@ -23,7 +23,6 @@
 
 ## **🗂️ 아키텍처**
 
-https://github.com/user-attachments/assets/7fab3a6d-543d-46ac-a937-1ce42198f074
 <img src="https://github.com/user-attachments/assets/7fab3a6d-543d-46ac-a937-1ce42198f074"/>
 
 ```rust
