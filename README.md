@@ -10,6 +10,7 @@
 ---
 ## 사용자 인터페이스
 
+<img src="https://github.com/user-attachments/assets/e04cbe96-609e-447a-99be-9f6083981ec7"/>
 
 ---
 
